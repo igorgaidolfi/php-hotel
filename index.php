@@ -39,9 +39,6 @@
         ],
 
     ];
-    // foreach($hotels as $hotel){
-    //     echo $hotel['name'].' '.$hotel['description'].' '.$hotel['parking'].' '.$hotel['vote'].' '.$hotel['distance_to_center'];
-    // }
 ?>
 
 <!DOCTYPE html>
@@ -54,17 +51,18 @@
         <link rel="stylesheet" href="./css/style.css">
     </head>
     <body>
+        <?php include "./partials/templates/header.php"; ?>
         <main>
             <div class="container">
                 <div class="row">
-                    <div class="col-12">
-                        <h1 class="text-center my-4">Hotels.com</h1>
+                    <div class="col-12 my-2">
+                        <h2 class="text-center my-4 text-uppercase">La nostra scelta di hotel</h2>
                     </div>
                 </div>
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 mb-3">
                         <table class="table table-striped text-center table-bordered">
                             <thead>
                                 <tr>
@@ -107,5 +105,6 @@
                 </div>
             </div>
         </main>
+        <?php include "./partials/templates/footer.php"; ?>
     </body>
 </html>
