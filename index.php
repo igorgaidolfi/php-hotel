@@ -39,6 +39,18 @@
         ],
 
     ];
+
+    $filtered_hotels = $hotels;
+    if(isset($_GET['parking']) == "true"){
+        $temp_hotels = [];
+        
+        foreach($filtered_hotels as $hotel){
+            if($hotel['parking'] == 1){
+                $temp_hotels[] = $hotel;
+            }
+        }
+        $filtered_hotels = $temp_hotels;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -62,6 +74,17 @@
             </div>
             <div class="container">
                 <div class="row">
+                    <div class="col-12 my-2 text-end">
+                        <form action="./index.php" method="get">
+                            <input type="checkbox" class="btn-check" id="btncheck1" name="parking" value="true">
+                            <label class="btn btn-outline-danger" for="btncheck1">Parcheggio</label>
+                            <button class="btn btn-primary" type="submit">Invia</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
                     <div class="col-12 mb-3">
                         <table class="table table-striped text-center table-bordered">
                             <thead>
@@ -74,7 +97,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach($hotels as $hotel){?>
+                                <?php foreach($filtered_hotels as $hotel){?>
                                 <tr>
                                         <td>
                                             <?php echo $hotel['name'] ?>
